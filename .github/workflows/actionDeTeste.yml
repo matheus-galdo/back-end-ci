@@ -1,0 +1,9 @@
+name: Action de exemplo
+on: [push] 
+jobs:
+  Exemplo-Action:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Rodar comando no terminal
+      run: pwd

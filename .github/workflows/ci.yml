@@ -1,19 +1,24 @@
 name: Rodar testes ao fazer pull request
 on: [pull_request] 
 jobs:
-    PullRequest-Github:
-        runs-on: ubuntu-latest
-        steps:
-            - name: Checkout
-              uses: actions/checkout@v3
-            - name: Criar um .env.test
-              uses: SpicyPizza/create-envfile@v2.0.2
-              with:
-                POSTGRES_PASSWORD: postgres
-                POSTGRES_USER: postgres
-                POSTGRES_DB: projeto_ci
-                DATABASE_URL: postgresql://postgres:postgres@mypostgres:5432/projeto_ci
-                directory: .
-                file: .env.test
-            - name: Rodar os testes
-              run: docker compose -f docker-compose-test.yml up
+  PullRequest-Github:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Checkout
+      uses: actions/checkout@v3
+
+    - name: Criar um .env.test
+      uses: SpicyPizza/create-envfile@v2.0
+      with:
+        envkey_POSTGRES_PASSWORD: postgres
+        envkey_POSTGRES_USER: postgres
+        envkey_POSTGRES_DB: projeto_ci
+        envkey_DATABASE_URL: postgresql://postgres:postgres@mypostgres:5432/projeto_ci
+        directory: .
+        # o erro estava aqui
+        #name: .env.test
+        file_name: .env.test
+
+    - name: Rodar os testes
+      run: docker compose -f docker-compose-test.yml run backend npm run test
