@@ -14,6 +14,6 @@ jobs:
       - name: Deploy to production
         uses: johnbeynon/render-deploy-action@v0.0.8
         with:
-          service-id: ${{ secrets.MY_RENDER_SERVICE_ID }} #isso está público
-          api-key: ${{ secrets.MY_RENDER_API_KEY }} #isso está público
+          service-id: srv-cn2ksmmd3nmc739elk8g #isso está público
+          api-key: wYaUWpVQi78 #isso está público
           wait-for-success: true
