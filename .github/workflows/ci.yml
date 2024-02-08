@@ -16,10 +16,12 @@ jobs:
         envkey_POSTGRES_DB: projeto_ci
         envkey_DATABASE_URL: postgresql://postgres:postgres@mypostgres:5432/projeto_ci
         directory: .
+        # o erro estava aqui
+        #name: .env.test
         file_name: .env.test
 
     - name: check path
       run: pwd && ls -la
 
     - name: Rodar os testes
-      run: docker compose -f docker-compose-test.yml run node npm run test
+      run: docker compose -f docker-compose-test.yml run backend npm run test
