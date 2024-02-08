@@ -9,4 +9,8 @@ app.use("/", async (req: Request, res: Response) => {
   return res.send(messages);
 });
 
+app.get('/health', (req: Request, res: Response) => {
+  res.send('Ok');
+});
+
 export default app;
