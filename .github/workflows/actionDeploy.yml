@@ -1,0 +1,19 @@
+name: Deploy No Render
+
+on:
+  push:
+    branches: [ main ]
+  pull_request:
+    branches: [ main ]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Deploy to production
+        uses: johnbeynon/render-deploy-action@v0.0.8
+        with:
+          service-id: srv-cn2ksmmd3nmc739elk8g #isso está público
+          api-key: wYaUWpVQi78 #isso está público
+          wait-for-success: true
