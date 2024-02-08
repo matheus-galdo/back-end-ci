@@ -9,10 +9,10 @@ jobs:
             - name: Criar um .env.test
               uses: SpicyPizza/create-envfile@v2.0.2
               with:
-                POSTGRES_PASSWORD: postgres
-                POSTGRES_USER: postgres
-                POSTGRES_DB: projeto_ci
-                DATABASE_URL: postgresql://postgres:postgres@mypostgres:5432/projeto_ci
+                envkey_POSTGRES_PASSWORD: postgres
+                envkey_POSTGRES_USER: postgres
+                envkey_POSTGRES_DB: projeto_ci
+                envkey_DATABASE_URL: postgresql://postgres:postgres@mypostgres:5432/projeto_ci
                 directory: .
                 file: .env.test
             - name: check path
